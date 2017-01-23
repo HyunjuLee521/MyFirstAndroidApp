@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -13,9 +14,17 @@
     <TextView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="안녕하십니까"
-        android:background="#dfe675" />
+        android:background="#dfe675"
+        android:text="안녕하t시오까"
+        android:textSize="45sp" />
+
+    <ImageView
+        android:src="@drawable/man"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView" />
 
 
-
-</RelativeLayout>
+    <!-- xml에서 주석은 태그 밖에서 달아야 한다 -->
+</LinearLayout>
