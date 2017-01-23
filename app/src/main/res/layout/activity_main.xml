@@ -11,17 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        android:layout_weight="1"
         android:background="#dfe675"
+        android:padding="16dp"
         android:text="안녕하t시오까"
         android:textSize="45sp" />
 
     <ImageView
         android:src="@drawable/man"
         android:scaleType="centerCrop"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/imageView" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/man" />
 
 
     <!-- xml에서서 주석 태그 밖에서 달아야 한다 -->
