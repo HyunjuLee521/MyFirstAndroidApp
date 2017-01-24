@@ -5,12 +5,23 @@
 
 
     <TextView
+        android:id="@+id/hello_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:background="#fda6a6"
         android:text="Hello"
         android:textSize="32sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hello_text"
+        android:layout_toStartOf="@id/hello_text"
+        android:background="#ecbaea"
+        android:text="왼쪽"
+        android:textSize="32sp" />
+    <!-- 상대적 위치 : 대각선 아래 = toStartOf + below -->
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,8 +34,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:background="#9fd5dc"
         android:text="hi"
         android:textSize="32sp" />
+
 
 </RelativeLayout>
