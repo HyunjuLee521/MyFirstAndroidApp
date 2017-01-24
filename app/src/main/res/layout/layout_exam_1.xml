@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/paris_brunch"
+        />
 
     <!-- Imageview : heigt 0dp, weight 1 주면,
     아래 LinearLayout의 height제외한 나머지 부분 다 차지한다 -->
@@ -36,14 +44,6 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scaleType="centerCrop"
-        android:src="@drawable/paris_brunch"
-        />
 
 
 </LinearLayout>

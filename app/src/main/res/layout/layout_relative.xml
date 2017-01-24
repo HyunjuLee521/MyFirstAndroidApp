@@ -13,14 +13,6 @@
         android:text="Hello"
         android:textSize="32sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/hello_text"
-        android:layout_toStartOf="@id/hello_text"
-        android:background="#ecbaea"
-        android:text="왼쪽"
-        android:textSize="32sp" />
     <!-- 상대적 위치 : 대각선 아래 = toStartOf + below -->
 
     <TextView
@@ -38,6 +30,16 @@
         android:background="#9fd5dc"
         android:text="hi"
         android:textSize="32sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ecbaea"
+        android:text="왼쪽"
+        android:textSize="32sp"
+        android:layout_below="@+id/hello_text"
+        android:layout_toStartOf="@+id/hello_text"
+        android:id="@+id/textView3" />
 
 
 </RelativeLayout>
