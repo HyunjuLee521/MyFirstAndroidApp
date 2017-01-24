@@ -9,22 +9,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:background="#fda6a6"
-        android:textSize="32sp"
-        android:text="Hello" />
+        android:text="Hello"
+        android:textSize="32sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#ffd471"
-        android:textSize="32sp"
-        android:text="안녕하세요" />
+        android:text="안녕하세요"
+        android:textSize="32sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#9fd5dc"
-        android:textSize="32sp"
-        android:text="hi" />
+        android:text="hi"
+        android:textSize="32sp" />
 
 </RelativeLayout>
