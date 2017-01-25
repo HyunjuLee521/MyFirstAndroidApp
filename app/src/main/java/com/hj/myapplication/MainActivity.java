@@ -11,9 +11,16 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();   // 클래스 이름을 String으로 얻는 방법
+
+    public static final int QUANTITY_MIN = 0;
+    public static final int COFFEE_PRICE = 3000;
+    public static final int QUANTITY_MAX = 10;
+
     private Button mMinusButton;
     private Button mPlusButton;
     private TextView mQuantityTextView;
+    private TextView mResultTextView;
+    private Button mOrderButton;
 
     // 수량 TextView는 숫자 타입으로 다룰 수 있는것이 아니라, 그냥 보여주는
     private int mQuantity;  // 초기화 안되어있음
@@ -37,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         mMinusButton = (Button) findViewById(R.id.minus_button);
         mPlusButton = (Button) findViewById(R.id.plus_button);
         mQuantityTextView = (TextView) findViewById(R.id.quantity_text);
+        mResultTextView = (TextView) findViewById(R.id.result_text);
+        mOrderButton = (Button) findViewById(R.id.order_button);
 
         // control + space
         // 무명클래스
@@ -44,27 +53,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 개발시에는 debug Log.d 만 쓰면 됨
-                Log.d(TAG, "마이너스 버튼 클릭");
-                Log.v(TAG, "일반로그");
-                Log.e(TAG, "에러로그");
-                Log.i(TAG, "정보로그");
-                Log.w(TAG, "경고로그");
+//                Log.d(TAG, "마이너스 버튼 클릭");
+//                Log.v(TAG, "일반로그");
+//                Log.e(TAG, "에러로그");
+//                Log.i(TAG, "정보로그");
+//                Log.w(TAG, "경고로그");
+//
+//                // 토스트 메세지
+//                Toast.makeText(MainActivity.this,
+//                        "메세지",
+//                        Toast.LENGTH_SHORT).show();
 
-                // 토스트 메세지
-                Toast.makeText(MainActivity.this,
-                        "메세지",
-                        Toast.LENGTH_SHORT).show();
+                mQuantity--;
+                if (mQuantity < QUANTITY_MIN) {
+                    mQuantity = QUANTITY_MIN;
+                }
+                // setText에는 Int값 넣었을때 String 의 주소값(참조값)으로 활용
+                // int값을 출력하기 위해서는 "" + int값으로 String값으로 변환시켜 출력
+
+
+                displayResult();
 
 
 
             }
         });
 
+        mPlusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                mQuantity++;
+                if (mQuantity > QUANTITY_MAX) {
+                    mQuantity = QUANTITY_MAX;
+                }
+                // setText에는 Int값 넣었을때 String 의 주소값(참조값)으로 활용
+                // int값을 출력하기 위해서는 "" + int값으로 String값으로 변환시켜 출력
+                mQuantityTextView.setText("" + mQuantity);
+
+                displayResult();
+
+
+            }
+        });
+
+        mOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = mResultTextView.getText().toString();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+    private void displayResult() {
+        mQuantityTextView.setText("" + mQuantity);
+
+        String result = "가격 : " + COFFEE_PRICE * mQuantity + "원\n감사합니다.";
+        mResultTextView.setText(result);
     }
 
     private void init() {
         mQuantity = 0;
     }
+
+
 
 }
