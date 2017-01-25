@@ -3,79 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--
-         Linear와 달리 구조화가 힘들다 : depth(깊이) 1단계로
-             아래와 같이 depth 단계 높여서 하지 말기!
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@id/suwonSmart"
-                android:text="왼쪽"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/suwonSmart"
-                android:text="오른쪽"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/suwonSmart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="수원스마트"
-                android:textSize="12sp" />
-
-        </RelativeLayout>
-
-    -->
+    <!--RelativeLayout  -->
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="수원스마트" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="수원스마트"
-        android:id="@+id/suwonSmart1"
-        android:layout_centerHorizontal="true" />
+        android:layout_toStartOf="@id/text1"
+        android:text="왼쪽" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/suwonSmart1"
-        android:text="왼쪽"/>
+        android:layout_toEndOf="@id/text1"
+        android:text="오른쪽" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/suwonSmart1"
-        android:text="오른쪽"/>
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/suwonSmart2"
-        android:text="위쪽"
-        android:textSize="12sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/suwonSmart2"
-        android:text="오른쪽"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/suwonSmart2"
+        android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -83,11 +32,34 @@
         android:textSize="12sp" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/text2"
+        android:text="위쪽"
+        android:textSize="12sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/suwonSmart3"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/text2"
+        android:text="오른쪽"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Hello"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/text3"
         android:layout_alignParentEnd="true"
         android:text="위쪽"
         android:textSize="12sp" />
@@ -96,20 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@id/suwonSmart3"
+        android:layout_toStartOf="@id/text3"
         android:text="왼쪽"
         android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/suwonSmart3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:text="Hello"
-        android:textSize="12sp" />
-
-
 
 
 </RelativeLayout>
