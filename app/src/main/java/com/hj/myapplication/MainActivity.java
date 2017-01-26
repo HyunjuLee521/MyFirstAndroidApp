@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int QUANTITY_MIN = 0;
     public static final int COFFEE_PRICE = 3000;
+    public static final int CREAM_PRICE = 500;
     public static final int QUANTITY_MAX = 10;
 
     private Button mMinusButton;
@@ -21,9 +24,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView mQuantityTextView;
     private TextView mResultTextView;
     private Button mOrderButton;
+    private CheckBox mCreamCheckBox;
 
     // 수량 TextView는 숫자 타입으로 다룰 수 있는것이 아니라, 그냥 보여주는
     private int mQuantity;  // 초기화 안되어있음
+
+    // 휘핑크림 변수
+    private boolean mIsCream;   //  boolean초기화안해도 됨 기본값false
 
 
     @Override
@@ -46,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
         mQuantityTextView = (TextView) findViewById(R.id.quantity_text);
         mResultTextView = (TextView) findViewById(R.id.result_text);
         mOrderButton = (Button) findViewById(R.id.order_button);
+        mCreamCheckBox = (CheckBox) findViewById(R.id.cream_check);
+
+
+        mCreamCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mIsCream = isChecked;
+                displayResult();
+            }
+        });
+
 
         // control + space
         // 무명클래스
@@ -73,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                 displayResult();
-
 
 
             }
@@ -111,14 +128,23 @@ public class MainActivity extends AppCompatActivity {
     private void displayResult() {
         mQuantityTextView.setText("" + mQuantity);
 
-        String result = "가격 : " + COFFEE_PRICE * mQuantity + "원\n감사합니다.";
+        int total = COFFEE_PRICE * mQuantity;
+        if (mIsCream) {
+            total += CREAM_PRICE;
+        } else {
+            total -= CREAM_PRICE;
+        }
+
+        String result = String.format("가격 %d원\n수량 %d개\n휘핑크림 : %s\n감사합니다",
+                total,
+                mQuantity,
+                mIsCream);
         mResultTextView.setText(result);
     }
 
     private void init() {
         mQuantity = 0;
     }
-
 
 
 }
