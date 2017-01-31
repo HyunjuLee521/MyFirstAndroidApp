@@ -13,17 +13,6 @@
         android:orientation="horizontal">
 
 
-        <!-- Team A -->
-
-        <!-- 중앙 선 -->
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#bababa" />
-
-
-        <!-- Team B -->
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -78,6 +67,11 @@
 
 
         </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#bababa" />
 
         <LinearLayout
             android:layout_width="0dp"
