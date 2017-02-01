@@ -39,8 +39,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".ManagerActivity" />
+        <activity android:name=".SignupActivity1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignupActivity2"></activity>
     </application>
 
 </manifest>

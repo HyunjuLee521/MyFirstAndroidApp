@@ -57,6 +57,7 @@ public class OrderCheckActivity extends AppCompatActivity implements View.OnClic
 
     // email 보내는 메서드 : composeEmail( , ,);
     public void composeEmail(String[] addresses, String subject, String text) {
+        // 암시적 인텐트
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
         intent.putExtra(Intent.EXTRA_EMAIL, addresses);
