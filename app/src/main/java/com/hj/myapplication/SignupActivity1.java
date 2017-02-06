@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -40,10 +42,7 @@ public class SignupActivity1 extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.reset_button:
-                mIdEdittext.setText("");
-                mPwEdittext.setText("");
-                mConfirmEdittext.setText("");
-                mEmailEdittext.setText("");
+                reset();
                 break;
 
             case R.id.join_button:
@@ -58,11 +57,18 @@ public class SignupActivity1 extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    private void reset() {
+        mIdEdittext.setText("");
+        mPwEdittext.setText("");
+        mConfirmEdittext.setText("");
+        mEmailEdittext.setText("");
+    }
+
 
     // null값인지 확인하여 null이면 false값 반환하는 메서드
     public boolean isNotNull() {
         boolean result = true;
-        if (mIdEdittext.getText().toString().isEmpty()
+        if (TextUtils.isEmpty(mIdEdittext.getText().toString())
                 || mPwEdittext.getText().toString().isEmpty()
                 || mConfirmEdittext.getText().toString().isEmpty()
                 || mEmailEdittext.getText().toString().isEmpty()) {
@@ -76,7 +82,7 @@ public class SignupActivity1 extends AppCompatActivity implements View.OnClickLi
     // 비밀번호와 비밀번호 확인 값이 다르면 false값 반환하는 메서드
     public boolean confirmPw() {
         boolean result = true;
-        if (!(mPwEdittext.getText().toString().equals(mConfirmEdittext.getText().toString()))) {
+        if (!mPwEdittext.getText().toString().equals(mConfirmEdittext.getText().toString())) {
             Toast.makeText(this, "비밀번호가 다릅니다", Toast.LENGTH_SHORT).show();
             result = false;
         }
@@ -94,11 +100,14 @@ public class SignupActivity1 extends AppCompatActivity implements View.OnClickLi
         intent.putExtra("pw", mPwEdittext.getText().toString());
         intent.putExtra("email", mEmailEdittext.getText().toString());
 
-        if (R.id.female_radiobutton == mRadioGroup.getCheckedRadioButtonId()) {
-            intent.putExtra("sex", "여자");
-        } else {
-            intent.putExtra("sex", "남자");
-        }
+        String mGender = ((RadioButton) findViewById(mRadioGroup.getCheckedRadioButtonId())).getText().toString();
+//        if (R.id.female_radiobutton == mRadioGroup.getCheckedRadioButtonId()) {
+//            intent.putExtra("sex", "여자");
+//        } else {
+//            intent.putExtra("sex", "남자");
+//        }
+
+        intent.putExtra("sex", mGender);
 
         startActivityForResult(intent, REQUEST_CODE);
     }
@@ -109,8 +118,7 @@ public class SignupActivity1 extends AppCompatActivity implements View.OnClickLi
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE
-                && resultCode == RESULT_OK
-                && data != null) {
+                && resultCode == RESULT_OK) {
             Toast.makeText(this, "확인 버튼을 누르셨습니다", Toast.LENGTH_SHORT).show();
         }
 
