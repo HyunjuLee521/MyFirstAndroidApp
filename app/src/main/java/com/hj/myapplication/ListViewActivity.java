@@ -37,6 +37,7 @@ public class ListViewActivity extends AppCompatActivity {
         addItem("커피앱", "CheckBox", MainActivity.class);
         addItem("회원가입", "RadioButton, StartActivityForResult 연습", SignupActivity1.class);
         addItem("인텐트 주고 받기", "StartActivityForResult", StartActivityForResultActivity.class);
+        addItem("날씨앱", "모델클래스를 활용하여 BaseAdapter 연습", WeatherActivity.class);
 
 
         // 어댑터 커스터마이징

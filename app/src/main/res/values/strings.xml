@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="title_activity_implicit">ImplicitActivity</string>
+    <string name="title_activity_memo1">Memo1Activity</string>
 </resources>
