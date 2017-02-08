@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
+
+import com.hj.myapplication.models.Memo;
 
 public class Memo2Activity extends AppCompatActivity {
     private EditText mContentsEdittext;
@@ -35,16 +36,20 @@ public class Memo2Activity extends AppCompatActivity {
             // -> id 값에 -1 할당
 
             intentId = getIntent().getIntExtra("id", -1);
+
         }
 
         // Memo1Activity startActivityForResult의 requestcode가 REQUEST_CREATE_NEW_MEMO 일 때.
         if (intentId != -1) {
-            String contents = getIntent().getStringExtra("contents");
-            String title = getIntent().getStringExtra("title");
+
+            Memo memo = (Memo) getIntent().getSerializableExtra("memo");
+
+//            String contents = getIntent().getStringExtra("contents");
+//            String title = getIntent().getStringExtra("title");
             id = intentId;
 
-            mContentsEdittext.setText(contents);
-            mTitleEdittext.setText(title);
+            mContentsEdittext.setText(memo.getContents());
+            mTitleEdittext.setText(memo.getTitle());
         }
 
 
@@ -55,12 +60,12 @@ public class Memo2Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_memo, menu);
+        inflater.inflate(R.menu.menu_memo2, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
 
-    Intent intent = new Intent();
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -79,11 +84,13 @@ public class Memo2Activity extends AppCompatActivity {
     }
 
     private void cancel() {
-        setResult(RESULT_CANCELED, intent);
+        setResult(RESULT_CANCELED);
         finish();
     }
 
     private void save() {
+        Intent intent = new Intent();
+
         intent.putExtra("title", mTitleEdittext.getText().toString());
         intent.putExtra("contents", mContentsEdittext.getText().toString());
         intent.putExtra("id", id);

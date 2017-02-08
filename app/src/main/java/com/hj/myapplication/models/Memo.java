@@ -1,13 +1,14 @@
 package com.hj.myapplication.models;
 
+import java.io.Serializable;
+
 /**
  * Created by USER on 2017-02-07.
  */
-
-public class Memo {
+// Serializable을 implements해서 직렬화 가능한 객체가 되었다
+public class Memo implements Serializable {
     private String title;
     private String contents;
-
 
     public Memo(String title, String contents) {
         this.title = title;

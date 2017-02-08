@@ -18,11 +18,9 @@ import java.util.List;
 
 public class MemoAdapter extends BaseAdapter {
 
-    private Context mContext;
     private List<Memo> mData;
 
-    public MemoAdapter(Context context, List<Memo> mData) {
-        this.mContext = context;
+    public MemoAdapter(List<Memo> mData) {
         this.mData = mData;
     }
 
@@ -50,7 +48,7 @@ public class MemoAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
 
             // 뷰를 처음 만들 때
-            convertView = LayoutInflater.from(mContext)
+            convertView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_memo, parent, false);
 
 
@@ -85,6 +83,5 @@ public class MemoAdapter extends BaseAdapter {
     private static class ViewHolder {
         TextView titleTextview;
         TextView contentsTextview;
-
     }
 }
